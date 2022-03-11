@@ -20,30 +20,52 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
-  <body>
+  <body x-data="staticData">
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-      <button type="button" class="btn btn-danger save-btn">
+      <button
+        type="button"
+        class="btn btn-danger save-btn"
+        @mousedown="blogList[0] = $refs.editbox.value"
+      >
         Save
       </button>
       <button
         type="button"
         class="btn btn-warning cancel-btn"
+        @mousedown="$refs.editbox.value = blogList[0]"
       >
         Cancel
       </button>
     </div>
     <textarea
-      id="editbox"
+      x-ref="editbox"
       name="textbox"
       rows="9"
       cols="50"
       class="d-block my-1"
+      :value="blogList[0]"
     >
     </textarea>
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-      <button type="button" class="btn btn-danger save-btn">Save</button>
-      <button type="button" class="btn btn-warning cancel-btn">Cancel</button>
+      <button
+        type="button"
+        class="btn btn-danger save-btn"
+        @mousedown="blogList[0] = $refs.editbox.value"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning cancel-btn"
+        @mousedown="$refs.editbox.value = blogList[0]"
+      >
+        Cancel
+      </button>
     </div>
   </body>
 </html>
